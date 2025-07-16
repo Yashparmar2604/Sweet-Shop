@@ -44,6 +44,12 @@ class SweetShop {
 
     return this.sweets;
   }
+
+
+  viewSweet(){
+    //return all the currently present sweets
+    return this.sweets;
+  }
 }
 
 module.exports = { SweetShop };
