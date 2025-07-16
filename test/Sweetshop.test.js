@@ -48,6 +48,17 @@ describe("sweetShop",()=>{
         result=shop.addSweet("Kaju Katli","Indian Sweet",-50,3);
         expect(result).toBeInstanceOf(Error);
         expect(result.message).toBe("The Price Has to be Greater Than 0");
+    });
+
+    test("should return an error if the quantity is of the sweet is less than zero",()=>{
+        const shop=new SweetShop();
+        let result=shop.addSweet("kaju Katli","Indian Sweet",200,-23);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("The Quantity should be Greater than zero(0)")
+        result=shop.addSweet("kaju Katli","Indian Sweet",200,0);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("The Quantity should be Greater than zero(0)")
+        
     })
 
 })
