@@ -1,6 +1,6 @@
 const {SweetShop} = require('../index.js');
 
-describe("sweetShop",()=>{
+describe("sweetShop-addSweet",()=>{
 // Test that a sweet is added successfully and returned in the sweets array
     test('should add the sweet with valid inputs and return the sweets array',()=>{
          const shop=new SweetShop();
@@ -80,5 +80,23 @@ describe("sweetShop",()=>{
     expect(sweets[1].id).toBe(2);
     expect(sweets[2].id).toBe(3);
   });
+
+})
+
+
+describe("sweetshop-deleteSweet",()=>{
+
+    test("should delete a sweet by ID",()=>{
+        const shop=new SweetShop();
+       //added the sweet to the sweets array
+        shop.addSweet("Kaju Katli","Indian Sweet",200,10);
+        shop.addSweet("Dairy Milk","Chocolate",10,20);
+
+        const result=shop.deleteSweet(1);
+        // expect output from the defined function
+        expect(result.length).toBe(1);
+        expect(result[0].id).toBe(2);
+
+    })
 
 })
