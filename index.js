@@ -50,35 +50,39 @@ class SweetShop {
     return this.sweets;
   }
 
-  searchSweets({ name,category,minPrice,maxPrice }) {
-
-    let results=this.sweets;
-    //search by name  functionality implemented 
+  searchSweets({ name, category, minPrice, maxPrice }) {
+    let results = this.sweets;
+    //search by name  functionality implemented
     if (name) {
-      results = results.filter(sweet =>
+      results = results.filter((sweet) =>
         sweet.name.toLowerCase().includes(name.toLowerCase())
       );
     }
 
     //search by category  functionality implemented
-    if(category){
-      results = results.filter(sweet =>
-        sweet.category.toLowerCase() === category.toLowerCase()
+    if (category) {
+      results = results.filter(
+        (sweet) => sweet.category.toLowerCase() === category.toLowerCase()
       );
-    } 
-
+    }
 
     //search by pricerange  functionality implemented
 
     if (minPrice !== undefined) {
-      results = results.filter(sweet => sweet.price >= minPrice);
+      results = results.filter((sweet) => sweet.price >= minPrice);
     }
 
     if (maxPrice !== undefined) {
-      results = results.filter(sweet => sweet.price <= maxPrice);
+      results = results.filter((sweet) => sweet.price <= maxPrice);
     }
 
     return results;
+  }
+
+  purchaseSweet(id, quantity) {
+    const sweet = this.sweets.find((s) => s.id === id);
+    sweet.quantity -= quantity;
+    return sweet;
   }
 }
 
