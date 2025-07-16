@@ -124,7 +124,7 @@ describe("SweetShop-ViewSweet", () => {
 });
 
 describe("SweetShop-SearchSweet", () => {
-  //test for the search
+  //test for the search by name
   test("should return sweets that match the given name", () => {
     const shop = new SweetShop();
     shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);

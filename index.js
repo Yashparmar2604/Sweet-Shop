@@ -45,10 +45,22 @@ class SweetShop {
     return this.sweets;
   }
 
-
-  viewSweet(){
+  viewSweet() {
     //return all the currently present sweets
     return this.sweets;
+  }
+
+  searchSweets({ name }) {
+
+    let results=this.sweets;
+    //search by name  functionality implemented 
+    if (name) {
+      results = results.filter(sweet =>
+        sweet.name.toLowerCase().includes(name.toLowerCase())
+      );
+    }
+
+    return results;
   }
 }
 
