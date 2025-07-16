@@ -50,7 +50,7 @@ class SweetShop {
     return this.sweets;
   }
 
-  searchSweets({ name,category }) {
+  searchSweets({ name,category,minPrice,maxPrice }) {
 
     let results=this.sweets;
     //search by name  functionality implemented 
@@ -66,6 +66,14 @@ class SweetShop {
         sweet.category.toLowerCase() === category.toLowerCase()
       );
     } 
+
+    if (minPrice !== undefined) {
+      results = results.filter(sweet => sweet.price >= minPrice);
+    }
+
+    if (maxPrice !== undefined) {
+      results = results.filter(sweet => sweet.price <= maxPrice);
+    }
 
     return results;
   }
