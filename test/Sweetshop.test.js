@@ -168,7 +168,7 @@ describe("SweetShop-SearchSweet", () => {
 });
 
 describe("SweetShop-PurchaseSweet", () => {
-// test for the quantity function
+  // test for the quantity function
   test("should reduce quantity when a sweet is purchased", () => {
     const shop = new SweetShop();
     shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);
@@ -176,5 +176,17 @@ describe("SweetShop-PurchaseSweet", () => {
     const result = shop.purchaseSweet(1, 3);
 
     expect(result.quantity).toBe(7);
+  });
+
+  //test for low stock condition
+
+  test("should return error if requested quantity exceeds stock", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Rasmalai", "Indian Sweet", 150, 5);
+
+    const result = shop.purchaseSweet(1, 10); // trying to buy more than available
+
+    expect(result).toBeInstanceOf(Error);
+    expect(result.message).toBe("Not enough stock available");
   });
 });
