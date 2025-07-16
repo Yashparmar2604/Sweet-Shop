@@ -33,3 +33,5 @@ Thumbs.db
 # Output folders
 dist/
 build/
+
+coverage/

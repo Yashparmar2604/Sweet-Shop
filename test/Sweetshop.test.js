@@ -1,5 +1,6 @@
 const { SweetShop } = require("../index.js");
 
+// testes for the AddSweet feature
 describe("SweetShop-AddSweet", () => {
   // Test that a sweet is added successfully and returned in the sweets array
   test("should add the sweet with valid inputs and return the sweets array", () => {
@@ -75,6 +76,10 @@ describe("SweetShop-AddSweet", () => {
   });
 });
 
+
+
+// Tests for the DeleteSweets  feature 
+
 describe("SweetShop-DeleteSweet", () => {
   test("should delete a sweet by ID", () => {
     const shop = new SweetShop();
@@ -100,6 +105,8 @@ describe("SweetShop-DeleteSweet", () => {
   });
 });
 
+
+// Tests for the ViewSweets feature
 describe("SweetShop-ViewSweet", () => {
   test("should return a list of all available sweets", () => {
     const shop = new SweetShop();
@@ -122,6 +129,9 @@ describe("SweetShop-ViewSweet", () => {
     expect(result).toEqual([]);
   });
 });
+
+
+//tests for the SearchSweets feature
 
 describe("SweetShop-SearchSweet", () => {
   //test for the search by name
@@ -167,6 +177,9 @@ describe("SweetShop-SearchSweet", () => {
   });
 });
 
+
+//Tests foir the PurchaseSweet feature
+
 describe("SweetShop-PurchaseSweet", () => {
   // test for the quantity function
   test("should reduce quantity when a sweet is purchased", () => {
@@ -201,6 +214,9 @@ describe("SweetShop-PurchaseSweet", () => {
     expect(result.message).toBe("Sweet not found");
   });
 });
+
+
+//Tests for the RestockSweets feature
 
 describe("SweetShop-Restock", () => {
   //test for the restocking
