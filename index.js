@@ -50,7 +50,7 @@ class SweetShop {
     return this.sweets;
   }
 
-  searchSweets({ name }) {
+  searchSweets({ name,category }) {
 
     let results=this.sweets;
     //search by name  functionality implemented 
@@ -59,6 +59,13 @@ class SweetShop {
         sweet.name.toLowerCase().includes(name.toLowerCase())
       );
     }
+
+    //search by category  functionality implemented
+    if(category){
+      results = results.filter(sweet =>
+        sweet.category.toLowerCase() === category.toLowerCase()
+      );
+    } 
 
     return results;
   }
