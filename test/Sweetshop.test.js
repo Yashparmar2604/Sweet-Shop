@@ -39,5 +39,15 @@ describe("sweetShop",()=>{
     });
 
 
+    test("should return an error if the price of the sweet is less than zero",()=>{
+        const shop=new SweetShop();
+        let result=shop.addSweet("Kaju Katli","Indian Sweet",0,3);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("The Price Has to be Greater Than 0");
+
+        result=shop.addSweet("Kaju Katli","Indian Sweet",-50,3);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("The Price Has to be Greater Than 0");
+    })
 
 })
