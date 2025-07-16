@@ -38,7 +38,9 @@ addSweet(name,category,price,quantity){
         //add the functionality to the delete the item
             const index=this.sweets.findIndex(s => s.id == id);
 
-           
+            if (index === -1) {
+             return new Error("Sweet with given ID not found");
+            }
             this.sweets.splice(index,1);
 
             return this.sweets;
