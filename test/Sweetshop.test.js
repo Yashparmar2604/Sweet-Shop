@@ -203,9 +203,7 @@ describe("SweetShop-PurchaseSweet", () => {
 });
 
 describe("SweetShop-Restock", () => {
-
-
-    //test for the restocking
+  //test for the restocking
   test("should increase the quantity of sweet when restocked", () => {
     const shop = new SweetShop();
     shop.addSweet("Gulab Jamun", "Milk-Based", 100, 10);
@@ -213,5 +211,13 @@ describe("SweetShop-Restock", () => {
     const result = shop.restockSweet(1, 5); // restock with 5 more
 
     expect(result.quantity).toBe(15); // 10 + 5 = 15
+  });
+// test for if id is not represent in the array
+  test("should return error if sweet ID is not found during restock", () => {
+    const shop = new SweetShop();
+    const result = shop.restockSweet(99, 5);
+
+    expect(result).toBeInstanceOf(Error);
+    expect(result.message).toBe("Sweet not found");
   });
 });
