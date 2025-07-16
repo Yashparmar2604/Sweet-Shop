@@ -150,4 +150,19 @@ describe("SweetShop-SearchSweet", () => {
     expect(result.length).toBe(1);
     expect(result[0].category).toBe("Chocolate");
   });
+
+  //test for search by pricerange
+
+  test("should return sweets within a given price range", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);
+    shop.addSweet("Rasmalai", "Indian Sweet", 150, 5);
+    shop.addSweet("Chocolate Bar", "Chocolate", 100, 8);
+
+    const result = shop.searchSweets({ minPrice: 120, maxPrice: 200 });
+
+    expect(result.length).toBe(2);
+    expect(result[0].price).toBeGreaterThanOrEqual(120);
+    expect(result[1].price).toBeLessThanOrEqual(200);
+  });
 });
