@@ -37,11 +37,14 @@ addSweet(name,category,price,quantity){
       deleteSweet(id){
         //add the functionality to the delete the item
             const index=this.sweets.findIndex(s => s.id == id);
+
+           
             this.sweets.splice(index,1);
 
-    }
+            return this.sweets;
 
-  
+
+    }
 
  }
 

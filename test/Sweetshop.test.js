@@ -99,6 +99,18 @@ describe("sweetshop-deleteSweet",()=>{
 
     });
 
-    
+
+    test("should return the same list if Id to delete does not exist",()=>{
+        const shop = new SweetShop();
+
+        shop.addSweet("Kaju Katli","Indian Sweet",200,10);
+
+        const result=shop.deleteSweet(90);
+
+         expect(result).toBeInstanceOf(Error);
+         expect(result.message).toBe("Sweet with given ID not found");
+    })
+
+
 
 })
