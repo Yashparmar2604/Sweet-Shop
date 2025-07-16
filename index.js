@@ -67,6 +67,9 @@ class SweetShop {
       );
     } 
 
+
+    //search by pricerange  functionality implemented
+
     if (minPrice !== undefined) {
       results = results.filter(sweet => sweet.price >= minPrice);
     }
