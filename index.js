@@ -97,11 +97,11 @@ class SweetShop {
 
   restockSweet(id, quantity) {
     const sweet = this.sweets.find((s) => s.id === id);
-
+  // test if sweet is not available 
     if (!sweet) {
       return new Error("Sweet not found");
     }
-
+// test is quantity is less than or equal to zero
     if (quantity <= 0) {
       return new Error("Invalid restock quantity");
     }
