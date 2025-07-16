@@ -16,6 +16,10 @@ addSweet(name,category,price,quantity){
     if(price<=0){
         return new Error("The Price Has to be Greater Than 0");
     }
+
+    if(quantity<=0){
+        return new Error("The Quantity should be Greater than zero(0)");
+    }
     this.id=this.id+1;
     const newSweet={id:this.id,name,category,price,quantity};
     this.sweets.push(newSweet);
