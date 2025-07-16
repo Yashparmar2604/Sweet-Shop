@@ -104,7 +104,7 @@ describe("sweetshop-deleteSweet",()=>{
         const shop = new SweetShop();
 
         shop.addSweet("Kaju Katli","Indian Sweet",200,10);
-
+       //test for the invalid id in the sweets array
         const result=shop.deleteSweet(90);
 
          expect(result).toBeInstanceOf(Error);
