@@ -81,9 +81,9 @@ class SweetShop {
 
   purchaseSweet(id, quantity) {
     const sweet = this.sweets.find((s) => s.id === id);
-   //validation if sweet is not available
-    if(!sweet){
-        return new Error("Sweet not found");
+    //validation if sweet is not available
+    if (!sweet) {
+      return new Error("Sweet not found");
     }
     //validation if quanity is not greater then demanded
     if (quantity > sweet.quantity) {
@@ -92,6 +92,12 @@ class SweetShop {
 
     //decresing the quantity
     sweet.quantity -= quantity;
+    return sweet;
+  }
+
+  restockSweet(id, quantity) {
+    const sweet = this.sweets.find((s) => s.id === id);
+    sweet.quantity += quantity;
     return sweet;
   }
 }
