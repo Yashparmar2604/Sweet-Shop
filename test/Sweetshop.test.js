@@ -136,4 +136,18 @@ describe("SweetShop-SearchSweet", () => {
     expect(result.length).toBe(1);
     expect(result[0].name).toBe("Kaju Katli");
   });
+
+  //test for search by category
+
+  test("should return sweets that match the given category", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);
+    shop.addSweet("Rasmalai", "Indian Sweet", 150, 5);
+    shop.addSweet("Chocolate Bar", "Chocolate", 100, 8);
+
+    const result = shop.searchSweets({ category: "chocolate" });
+
+    expect(result.length).toBe(1);
+    expect(result[0].category).toBe("Chocolate");
+  });
 });
