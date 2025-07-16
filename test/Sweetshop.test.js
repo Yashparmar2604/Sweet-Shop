@@ -127,5 +127,12 @@ describe("SweetShop-ViewSweet",()=>{
         expect(result[0].name).toBe("Kaju Katli");
         expect(result[1].name).toBe("Dairy Milk");
 
-     })
+     });
+
+     test("should return an empty array if no sweets are added", () => {
+        const shop = new SweetShop();
+        const result = shop.viewSweet();
+
+        expect(result).toEqual([]);
+     });
 })
