@@ -190,16 +190,28 @@ describe("SweetShop-PurchaseSweet", () => {
     expect(result.message).toBe("Not enough stock available");
   });
 
-  // test if sweet is not present 
+  // test if sweet is not present
 
-  test("should return error if requested sweet is not available",()=>{
+  test("should return error if requested sweet is not available", () => {
+    const shop = new SweetShop();
 
-    const shop=new SweetShop();
-
-    const result=shop.purchaseSweet(1,10);
+    const result = shop.purchaseSweet(1, 10);
 
     expect(result).toBeInstanceOf(Error);
     expect(result.message).toBe("Sweet not found");
-  })
+  });
+});
 
+describe("SweetShop-Restock", () => {
+
+
+    //test for the restocking
+  test("should increase the quantity of sweet when restocked", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Gulab Jamun", "Milk-Based", 100, 10);
+
+    const result = shop.restockSweet(1, 5); // restock with 5 more
+
+    expect(result.quantity).toBe(15); // 10 + 5 = 15
+  });
 });
