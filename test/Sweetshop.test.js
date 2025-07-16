@@ -194,10 +194,12 @@ describe("SweetShop-PurchaseSweet", () => {
 
   test("should return error if requested sweet is not available",()=>{
 
+    const shop=new SweetShop();
+
     const result=shop.purchaseSweet(1,10);
 
     expect(result).toBeInstanceOf(Error);
-    expect(result.message).toBe("Sweet Not found");
+    expect(result.message).toBe("Sweet not found");
   })
 
 });

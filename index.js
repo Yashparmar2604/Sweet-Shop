@@ -81,6 +81,10 @@ class SweetShop {
 
   purchaseSweet(id, quantity) {
     const sweet = this.sweets.find((s) => s.id === id);
+
+    if(!sweet){
+        return new Error("Sweet not found");
+    }
     if (quantity > sweet.quantity) {
       return new Error("Not enough stock available");
     }
