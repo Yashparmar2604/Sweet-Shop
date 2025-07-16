@@ -166,3 +166,15 @@ describe("SweetShop-SearchSweet", () => {
     expect(result[1].price).toBeLessThanOrEqual(200);
   });
 });
+
+describe("SweetShop-PurchaseSweet", () => {
+// test for the quantity function
+  test("should reduce quantity when a sweet is purchased", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);
+
+    const result = shop.purchaseSweet(1, 3);
+
+    expect(result.quantity).toBe(7);
+  });
+});
