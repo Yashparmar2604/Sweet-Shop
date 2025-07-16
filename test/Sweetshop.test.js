@@ -212,12 +212,22 @@ describe("SweetShop-Restock", () => {
 
     expect(result.quantity).toBe(15); // 10 + 5 = 15
   });
-// test for if id is not represent in the array
+  // test for if id is not represent in the array
   test("should return error if sweet ID is not found during restock", () => {
     const shop = new SweetShop();
     const result = shop.restockSweet(99, 5);
 
     expect(result).toBeInstanceOf(Error);
     expect(result.message).toBe("Sweet not found");
+  });
+
+  //  test if quantity is zero or negative
+  test("should return error if restock quantity is zero or negative", () => {
+    const shop = new SweetShop();
+    shop.addSweet("Barfi", "Milk-Based", 120, 10);
+
+    const result = shop.restockSweet(1, 0);
+    expect(result).toBeInstanceOf(Error);
+    expect(result.message).toBe("Invalid restock quantity");
   });
 });
