@@ -10,4 +10,32 @@ describe("sweetShop",()=>{
 
     });
 
+    test("should return an error if any required field is missing",()=>{
+
+
+        const shop=new SweetShop();
+
+        // Test: Missing 'name'
+       // Expected: Should return an error stating all fields are required
+        let result=shop.addSweet(undefined,"Indian Sweet",200,3);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("All Fields Are Required");
+
+          // Test: Missing 'category'
+        result=shop.addSweet("Kaju Katli",undefined,200,3);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("All Fields Are Required");
+  
+        // Test: Missing 'price'
+        result=shop.addSweet("Kaju Katli","Indian Sweet",undefined,3);
+       expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("All Fields Are Required");
+
+        // Test: Missing 'quantity'
+        result=shop.addSweet("Kaju Katli","Indian Sweet",200,undefined);
+        expect(result).toBeInstanceOf(Error);
+        expect(result.message).toBe("All Fields Are Required");
+
+    })
+
 })
