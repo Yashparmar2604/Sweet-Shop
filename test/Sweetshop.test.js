@@ -97,6 +97,8 @@ describe("sweetshop-deleteSweet",()=>{
         expect(result.length).toBe(1);
         expect(result[0].id).toBe(2);
 
-    })
+    });
+
+    
 
 })

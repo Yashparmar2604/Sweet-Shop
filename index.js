@@ -34,11 +34,20 @@ addSweet(name,category,price,quantity){
     return this.sweets;
 }
 
+      deleteSweet(id){
+        //add the functionality to the delete the item
+            const index=this.sweets.findIndex(s => s.id == id);
+            this.sweets.splice(index,1);
 
+    }
 
   
 
  }
+
+
+
+
 
 module.exports={SweetShop};
 
