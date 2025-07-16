@@ -38,7 +38,7 @@ describe("sweetShop",()=>{
 
     });
 
-
+  // Test For the price less than zero of equal to zero
     test("should return an error if the price of the sweet is less than zero",()=>{
         const shop=new SweetShop();
         let result=shop.addSweet("Kaju Katli","Indian Sweet",0,3);
@@ -50,6 +50,9 @@ describe("sweetShop",()=>{
         expect(result.message).toBe("The Price Has to be Greater Than 0");
     });
 
+
+    //test for the quantity value is greater than or equal to zero
+
     test("should return an error if the quantity is of the sweet is less than zero",()=>{
         const shop=new SweetShop();
         let result=shop.addSweet("kaju Katli","Indian Sweet",200,-23);
@@ -60,5 +63,22 @@ describe("sweetShop",()=>{
         expect(result.message).toBe("The Quantity should be Greater than zero(0)")
         
     })
+
+
+      // test for if the autoincrement is working fine or not
+
+      test("should auto-increment ID for each added sweet", () => {
+    const shop = new SweetShop();
+
+    shop.addSweet("Kaju Katli", "Indian Sweet", 200, 10);
+    shop.addSweet("Rasmalai", "Indian Sweet", 250, 5);
+    shop.addSweet("Gulab Jamun", "Milk-Based", 100, 15);
+
+    const sweets = shop.sweets;
+
+    expect(sweets[0].id).toBe(1);
+    expect(sweets[1].id).toBe(2);
+    expect(sweets[2].id).toBe(3);
+  });
 
 })
