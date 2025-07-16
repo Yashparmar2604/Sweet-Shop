@@ -9,7 +9,9 @@ constructor(){
  
 addSweet(name,category,price,quantity){
 
-
+    if(!name || !category || !price || !quantity){
+        return new Error("All Fields Are Required");
+    }
     this.id=this.id+1;
     const newSweet={id:this.id,name,category,price,quantity};
     this.sweets.push(newSweet);

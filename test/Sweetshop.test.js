@@ -36,6 +36,8 @@ describe("sweetShop",()=>{
         expect(result).toBeInstanceOf(Error);
         expect(result.message).toBe("All Fields Are Required");
 
-    })
+    });
+
+
 
 })
