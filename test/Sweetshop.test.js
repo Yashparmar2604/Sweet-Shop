@@ -128,7 +128,8 @@ describe("SweetShop-ViewSweet",()=>{
         expect(result[1].name).toBe("Dairy Milk");
 
      });
-
+ 
+     //added the test to check when the list is empty
      test("should return an empty array if no sweets are added", () => {
         const shop = new SweetShop();
         const result = shop.viewSweet();
